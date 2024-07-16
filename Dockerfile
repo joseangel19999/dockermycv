@@ -1,6 +1,4 @@
-FROM openjdk:8-jdk-alpine
-MAINTAINER angelcode.com
-ARG JAR_FILE=target/app-docker-1.0.jar
-EXPOSE 8081
-ADD ${JAR_FILE} app.jar
+FROM eclipse-temurin:17-jdk-alpine
+VOLUME /tmp
+COPY target/*.jar app-docker-1.0.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
